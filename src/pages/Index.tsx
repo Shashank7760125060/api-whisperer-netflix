@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import MovieRow from "@/components/MovieRow";
 import {
@@ -13,7 +12,6 @@ import {
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
       <HeroSection />
       <div className="-mt-24 relative z-10 space-y-8 pb-16">
         <MovieRow title="Trending Now" queryKey="trending-row" queryFn={getTrending} />
@@ -23,6 +21,9 @@ const Index = () => {
         <MovieRow title="Coming Soon" queryKey="upcoming" queryFn={getUpcoming} />
         <MovieRow title="Popular TV Shows" queryKey="popular-tv" queryFn={getPopularTV} />
       </div>
+      <footer className="border-t border-border py-8 text-center">
+        <p className="text-sm text-muted-foreground">Developed by <span className="font-semibold text-foreground">Shashank M</span></p>
+      </footer>
     </div>
   );
 };
