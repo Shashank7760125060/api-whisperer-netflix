@@ -1,11 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import MovieRow from "@/components/MovieRow";
+import {
+  getTrending,
+  getPopularMovies,
+  getTopRated,
+  getNowPlaying,
+  getUpcoming,
+  getPopularTV,
+} from "@/lib/tmdb";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <HeroSection />
+      <div className="-mt-24 relative z-10 space-y-8 pb-16">
+        <MovieRow title="Trending Now" queryKey="trending-row" queryFn={getTrending} />
+        <MovieRow title="Popular Movies" queryKey="popular" queryFn={getPopularMovies} />
+        <MovieRow title="Now Playing" queryKey="now-playing" queryFn={getNowPlaying} />
+        <MovieRow title="Top Rated" queryKey="top-rated" queryFn={getTopRated} />
+        <MovieRow title="Coming Soon" queryKey="upcoming" queryFn={getUpcoming} />
+        <MovieRow title="Popular TV Shows" queryKey="popular-tv" queryFn={getPopularTV} />
       </div>
     </div>
   );
